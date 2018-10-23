@@ -95,25 +95,25 @@ shinyServer(function(input, output) {
         p
     })
     
-#    output$plot2({
-#        predict1 <- predict(model1, newdata = test)
-#        predict2 <- predict(model2, newdata = test)
-#        
-#        resModel1 <- data.frame(model = 1, 
-#                                error = test$price - predict1)
-#        resModel2 <- data.frame(model = 2, 
-#                                error = test$price - predict2)
-#        dataRes <- rbind(resModel1, resModel2)
-#        dataRes$model <- factor(dataRes$model, labels = c("1", "2"))
-#        
-#        fill <- "#7EB047"
-#        line <- "#1F3552"
-#        
-#        p <- ggplot(dataRes, aes(x = model, y = log10(error))) + 
-#            geom_boxplot(fill = fill, colour = line, alpha = 0.8)
-#        p <- p + scale_y_continuous("Price error in a log scale")
-#        p
-#    })
+    output$plot2({
+        predict1 <- predict(model1, newdata = test)
+        predict2 <- predict(model2, newdata = test)
+        
+        resModel1 <- data.frame(model = 1, 
+                                error = test$price - predict1)
+        resModel2 <- data.frame(model = 2, 
+                                error = test$price - predict2)
+        dataRes <- rbind(resModel1, resModel2)
+        dataRes$model <- factor(dataRes$model, labels = c("1", "2"))
+        
+        fill <- "#7EB047"
+        line <- "#1F3552"
+        
+        p <- ggplot(dataRes, aes(x = model, y = log10(error))) + 
+            geom_boxplot(fill = fill, colour = line, alpha = 0.8)
+        p <- p + scale_y_continuous("Price error in a log scale")
+        p
+    })
     
     output$pred1 <- renderText({
         model1Predict()  
