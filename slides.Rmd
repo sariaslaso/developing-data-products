@@ -25,7 +25,7 @@ diamondsData <- select(diamonds, -contains("color"), -contains("clarity"))
 ```
 
 ```{r, echo=TRUE}
-set.seed(138574)
+set.seed(138575)
 inTrain <- createDataPartition(y = diamondsData$price, p = 0.7, 
                                list = FALSE)
 training <- diamondsData[inTrain, ]
